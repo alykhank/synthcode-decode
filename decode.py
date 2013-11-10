@@ -2,8 +2,8 @@
 
 import os, json
 
-MIN_DURATION = 0.5
-MAX_DURATION = 1.1
+MIN_DURATION = 0.4
+MAX_DURATION = 0.7
 
 def detectKeys(segments):
 	timedSegments = []
@@ -20,6 +20,7 @@ def detectKeys(segments):
 				for idx, p in enumerate(s['pitches']):
 					if p == 1.0:
 						timedSegments.append(idx)
+				del smallSegments[:]
 		else:
 			if MIN_DURATION <= s['duration']:
 				for idx, p in enumerate(s['pitches']):
